@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BT Innovation</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="font-sans scroll-smooth">
+
+  <!-- Header / Navbar -->
+  <header class="fixed w-full bg-white/90 backdrop-blur-md shadow z-50">
+    <nav class="max-w-7xl mx-auto flex justify-between items-center px-6 py-3">
+      <div class="text-xl font-bold text-blue-600">BT Innovation</div>
+      <ul class="hidden md:flex space-x-6 text-gray-700 font-medium">
+        <li><a href="#hero" class="hover:text-blue-600">Home</a></li>
+        <li><a href="#about" class="hover:text-blue-600">Who We Are</a></li>
+        <li><a href="#regions" class="hover:text-blue-600">Regions</a></li>
+        <li><a href="#services" class="hover:text-blue-600">Services</a></li>
+        <li><a href="#workflow" class="hover:text-blue-600">Process</a></li>
+        <li><a href="#clients" class="hover:text-blue-600">Clients</a></li>
+        <li><a href="#contact" class="hover:text-blue-600">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="h-screen flex flex-col justify-center items-center text-center bg-gradient-to-r from-blue-600 to-indigo-700 text-white px-6">
+    <h1 class="text-5xl font-extrabold mb-4">Innovating the Future with BT Innovation</h1>
+    <p class="text-lg max-w-2xl mb-6">
+      We empower businesses worldwide with technology solutions that extend the life of your systems and drive innovation forward.
+    </p>
+    <div class="space-x-4">
+      <a href="#contact" class="px-6 py-3 bg-white text-blue-600 rounded shadow hover:bg-gray-200">Get a Quote</a>
+      <a href="#services" class="px-6 py-3 border border-white rounded hover:bg-white hover:text-blue-600">Our Services</a>
+    </div>
+  </section>
+
+  <!-- Who We Are -->
+  <section id="about" class="py-20 px-6 bg-gray-50 text-center">
+    <h2 class="text-3xl font-bold mb-4">Who We Are</h2>
+    <p class="max-w-3xl mx-auto text-gray-600">
+      BT Innovation is a global technology partner specializing in hardware maintenance, IT consulting, and custom solutions. 
+      Our mission is to help businesses stay efficient, sustainable, and ready for the future.
+    </p>
+  </section>
+
+  <!-- Regions -->
+  <section id="regions" class="py-20 px-6">
+    <h2 class="text-3xl font-bold mb-8 text-center">Where We Operate</h2>
+    <div class="max-w-5xl mx-auto grid sm:grid-cols-2 md:grid-cols-4 gap-6 text-center">
+      <div class="p-6 bg-white shadow rounded"><h3 class="font-semibold">Asia Pacific</h3><p class="text-gray-600 mt-2">Mongolia, China, Korea, Japan</p></div>
+      <div class="p-6 bg-white shadow rounded"><h3 class="font-semibold">Americas</h3><p class="text-gray-600 mt-2">USA, Canada, Brazil</p></div>
+      <div class="p-6 bg-white shadow rounded"><h3 class="font-semibold">Europe</h3><p class="text-gray-600 mt-2">Germany, UK, France</p></div>
+      <div class="p-6 bg-white shadow rounded"><h3 class="font-semibold">Middle East & Africa</h3><p class="text-gray-600 mt-2">UAE, South Africa, Egypt</p></div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="py-20 px-6 bg-gray-100">
+    <h2 class="text-3xl font-bold mb-8 text-center">Our Services</h2>
+    <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+      <div class="p-6 bg-white rounded-lg shadow hover:shadow-lg transition">
+        <h3 class="text-xl font-semibold mb-2">Hardware Maintenance</h3>
+        <p class="text-gray-600">Keep your infrastructure running longer with proactive support and spare parts management.</p>
+      </div>
+      <div class="p-6 bg-white rounded-lg shadow hover:shadow-lg transition">
+        <h3 class="text-xl font-semibold mb-2">Consulting & Solutions</h3>
+        <p class="text-gray-600">From system architecture to cybersecurity, we design and implement robust solutions.</p>
+      </div>
+      <div class="p-6 bg-white rounded-lg shadow hover:shadow-lg transition">
+        <h3 class="text-xl font-semibold mb-2">IT Procurement</h3>
+        <p class="text-gray-600">Sourcing, configuring, and delivering high-quality hardware and software globally.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Workflow -->
+  <section id="workflow" class="py-20 px-6">
+    <h2 class="text-3xl font-bold mb-8 text-center">Our Process</h2>
+    <div class="max-w-3xl mx-auto space-y-6 text-lg text-gray-700">
+      <div><span class="font-bold text-blue-600">Phase 01:</span> Consultation & Needs Assessment</div>
+      <div><span class="font-bold text-blue-600">Phase 02:</span> Proposal & Agreement</div>
+      <div><span class="font-bold text-blue-600">Phase 03:</span> Implementation & Support</div>
+      <div><span class="font-bold text-blue-600">Phase 04:</span> Monitoring & Continuous Improvement</div>
+    </div>
+  </section>
+
+  <!-- Clients -->
+  <section id="clients" class="py-20 px-6 bg-gray-50 text-center">
+    <h2 class="text-3xl font-bold mb-8">Trusted By</h2>
+    <div class="flex flex-wrap justify-center items-center gap-10">
+      <div class="w-32 h-16 bg-gray-200 rounded"></div>
+      <div class="w-32 h-16 bg-gray-200 rounded"></div>
+      <div class="w-32 h-16 bg-gray-200 rounded"></div>
+      <div class="w-32 h-16 bg-gray-200 rounded"></div>
+    </div>
+    <p class="text-gray-500 mt-4">*Client logos coming soon</p>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-20 px-6 text-center">
+    <h2 class="text-3xl font-bold mb-4">Contact Us</h2>
+    <p class="text-gray-600 mb-6">We’d love to hear from you. Send us a message and we’ll respond quickly.</p>
+    <form class="max-w-md mx-auto space-y-4">
+      <input type="text" placeholder="Your Name" class="w-full p-3 border rounded" required />
+      <input type="email" placeholder="Your Email" class="w-full p-3 border rounded" required />
+      <textarea placeholder="Your Message" class="w-full p-3 border rounded" rows="4"></textarea>
+      <button type="submit" class="px-6 py-3 bg-blue-600 text-white rounded hover:bg-blue-700">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-6 bg-gray-900 text-gray-400 text-center">
+    © <span id="year"></span> BT Innovation. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
