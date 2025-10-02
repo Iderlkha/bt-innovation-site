@@ -4,118 +4,176 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BT Innovation</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="font-sans scroll-smooth">
+  <style>
+    /* Global Reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: "Segoe UI", sans-serif; line-height: 1.6; color: #333; }
 
-  <!-- Header / Navbar -->
-  <header class="fixed w-full bg-white/90 backdrop-blur-md shadow z-50">
-    <nav class="max-w-7xl mx-auto flex justify-between items-center px-6 py-3">
-      <div class="text-xl font-bold text-blue-600">BT Innovation</div>
-      <ul class="hidden md:flex space-x-6 text-gray-700 font-medium">
-        <li><a href="#hero" class="hover:text-blue-600">Home</a></li>
-        <li><a href="#about" class="hover:text-blue-600">Who We Are</a></li>
-        <li><a href="#regions" class="hover:text-blue-600">Regions</a></li>
-        <li><a href="#services" class="hover:text-blue-600">Services</a></li>
-        <li><a href="#workflow" class="hover:text-blue-600">Process</a></li>
-        <li><a href="#clients" class="hover:text-blue-600">Clients</a></li>
-        <li><a href="#contact" class="hover:text-blue-600">Contact</a></li>
+    /* Navbar */
+    header { position: fixed; top: 0; width: 100%; background: rgba(255,255,255,0.9); 
+             box-shadow: 0 2px 8px rgba(0,0,0,0.05); z-index: 1000; }
+    nav { max-width: 1100px; margin: auto; display: flex; justify-content: space-between; align-items: center; padding: 1rem; }
+    nav .logo { font-weight: 800; font-size: 1.5rem; color: #0077ff; }
+    nav ul { display: flex; list-style: none; }
+    nav li { margin-left: 20px; }
+    nav a { text-decoration: none; color: #333; font-weight: 500; transition: 0.3s; }
+    nav a:hover { color: #0077ff; }
+
+    /* Hero */
+    #hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
+            background: linear-gradient(135deg,#0077ff,#00c6ff); color: white; padding: 0 20px; }
+    #hero h1 { font-size: 3rem; margin-bottom: 1rem; animation: fadeInDown 1s ease; }
+    #hero p { max-width: 600px; margin-bottom: 2rem; animation: fadeInUp 1.5s ease; }
+    #hero .btn { padding: 12px 24px; border-radius: 30px; border: none; margin: 5px;
+                 font-size: 1rem; cursor: pointer; transition: 0.3s; }
+    #hero .btn-primary { background: white; color: #0077ff; }
+    #hero .btn-primary:hover { background: #f1f1f1; }
+    #hero .btn-outline { background: transparent; border: 2px solid white; color: white; }
+    #hero .btn-outline:hover { background: white; color: #0077ff; }
+
+    /* Sections */
+    section { padding: 80px 20px; max-width: 1100px; margin: auto; }
+    section h2 { text-align: center; font-size: 2rem; margin-bottom: 1.5rem; color: #0077ff; }
+    section p { text-align: center; margin-bottom: 2rem; color: #555; }
+
+    /* Cards (Services/Regions) */
+    .grid { display: grid; gap: 20px; }
+    @media(min-width: 768px){ .grid-3 { grid-template-columns: repeat(3,1fr); } .grid-4 { grid-template-columns: repeat(4,1fr); } }
+    .card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); transition: transform 0.3s, box-shadow 0.3s; }
+    .card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+    .card h3 { margin-bottom: 10px; color: #0077ff; }
+
+    /* Clients */
+    .clients { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+    .clients img { width: 120px; filter: grayscale(100%); transition: 0.3s; }
+    .clients img:hover { filter: grayscale(0); }
+
+    /* Contact Form */
+    form { max-width: 500px; margin: auto; display: flex; flex-direction: column; gap: 15px; }
+    form input, form textarea { padding: 12px; border-radius: 8px; border: 1px solid #ccc; }
+    form button { padding: 12px; border: none; border-radius: 8px; background: #0077ff; color: white; font-weight: bold; cursor: pointer; transition: 0.3s; }
+    form button:hover { background: #005ecc; }
+    .form-success { text-align: center; color: green; margin-top: 15px; display: none; }
+
+    /* Footer */
+    footer { background: #111; color: #aaa; text-align: center; padding: 20px; margin-top: 50px; }
+
+    /* Animations */
+    [data-animate] { opacity: 0; transform: translateY(30px); transition: all 0.6s ease; }
+    [data-animate].visible { opacity: 1; transform: translateY(0); }
+    @keyframes fadeInDown { from { opacity:0; transform: translateY(-30px);} to {opacity:1; transform:translateY(0);} }
+    @keyframes fadeInUp { from { opacity:0; transform: translateY(30px);} to {opacity:1; transform:translateY(0);} }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <nav>
+      <div class="logo">BT Innovation</div>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#regions">Regions</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#workflow">Process</a></li>
+        <li><a href="#clients">Clients</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Hero Section -->
-  <section id="hero" class="h-screen flex flex-col justify-center items-center text-center bg-gradient-to-r from-blue-600 to-indigo-700 text-white px-6">
-    <h1 class="text-5xl font-extrabold mb-4">Innovating the Future with BT Innovation</h1>
-    <p class="text-lg max-w-2xl mb-6">
-      We empower businesses worldwide with technology solutions that extend the life of your systems and drive innovation forward.
-    </p>
-    <div class="space-x-4">
-      <a href="#contact" class="px-6 py-3 bg-white text-blue-600 rounded shadow hover:bg-gray-200">Get a Quote</a>
-      <a href="#services" class="px-6 py-3 border border-white rounded hover:bg-white hover:text-blue-600">Our Services</a>
+  <!-- Hero -->
+  <section id="hero">
+    <h1>Innovating the Future with BT Innovation</h1>
+    <p>We empower businesses with technology solutions that extend the life of systems and drive innovation forward.</p>
+    <div>
+      <button class="btn btn-primary">Get a Quote</button>
+      <button class="btn btn-outline">Our Services</button>
     </div>
   </section>
 
-  <!-- Who We Are -->
-  <section id="about" class="py-20 px-6 bg-gray-50 text-center">
-    <h2 class="text-3xl font-bold mb-4">Who We Are</h2>
-    <p class="max-w-3xl mx-auto text-gray-600">
-      BT Innovation is a global technology partner specializing in hardware maintenance, IT consulting, and custom solutions. 
-      Our mission is to help businesses stay efficient, sustainable, and ready for the future.
-    </p>
+  <!-- About -->
+  <section id="about" data-animate>
+    <h2>Who We Are</h2>
+    <p>BT Innovation is a global technology partner specializing in hardware maintenance, IT consulting, and custom solutions. Our mission is to help businesses stay efficient, sustainable, and future-ready.</p>
   </section>
 
   <!-- Regions -->
-  <section id="regions" class="py-20 px-6">
-    <h2 class="text-3xl font-bold mb-8 text-center">Where We Operate</h2>
-    <div class="max-w-5xl mx-auto grid sm:grid-cols-2 md:grid-cols-4 gap-6 text-center">
-      <div class="p-6 bg-white shadow rounded"><h3 class="font-semibold">Asia Pacific</h3><p class="text-gray-600 mt-2">Mongolia, China, Korea, Japan</p></div>
-      <div class="p-6 bg-white shadow rounded"><h3 class="font-semibold">Americas</h3><p class="text-gray-600 mt-2">USA, Canada, Brazil</p></div>
-      <div class="p-6 bg-white shadow rounded"><h3 class="font-semibold">Europe</h3><p class="text-gray-600 mt-2">Germany, UK, France</p></div>
-      <div class="p-6 bg-white shadow rounded"><h3 class="font-semibold">Middle East & Africa</h3><p class="text-gray-600 mt-2">UAE, South Africa, Egypt</p></div>
+  <section id="regions" data-animate>
+    <h2>Where We Operate</h2>
+    <div class="grid grid-4">
+      <div class="card"><h3>Asia Pacific</h3><p>Mongolia, China, Korea, Japan</p></div>
+      <div class="card"><h3>Americas</h3><p>USA, Canada, Brazil</p></div>
+      <div class="card"><h3>Europe</h3><p>Germany, UK, France</p></div>
+      <div class="card"><h3>Middle East & Africa</h3><p>UAE, South Africa, Egypt</p></div>
     </div>
   </section>
 
   <!-- Services -->
-  <section id="services" class="py-20 px-6 bg-gray-100">
-    <h2 class="text-3xl font-bold mb-8 text-center">Our Services</h2>
-    <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
-      <div class="p-6 bg-white rounded-lg shadow hover:shadow-lg transition">
-        <h3 class="text-xl font-semibold mb-2">Hardware Maintenance</h3>
-        <p class="text-gray-600">Keep your infrastructure running longer with proactive support and spare parts management.</p>
-      </div>
-      <div class="p-6 bg-white rounded-lg shadow hover:shadow-lg transition">
-        <h3 class="text-xl font-semibold mb-2">Consulting & Solutions</h3>
-        <p class="text-gray-600">From system architecture to cybersecurity, we design and implement robust solutions.</p>
-      </div>
-      <div class="p-6 bg-white rounded-lg shadow hover:shadow-lg transition">
-        <h3 class="text-xl font-semibold mb-2">IT Procurement</h3>
-        <p class="text-gray-600">Sourcing, configuring, and delivering high-quality hardware and software globally.</p>
-      </div>
+  <section id="services" data-animate>
+    <h2>Our Services</h2>
+    <div class="grid grid-3">
+      <div class="card"><h3>Hardware Maintenance</h3><p>Keep your infrastructure running longer with proactive support.</p></div>
+      <div class="card"><h3>Consulting & Solutions</h3><p>From system architecture to cybersecurity, we deliver expertise.</p></div>
+      <div class="card"><h3>IT Procurement</h3><p>Sourcing, configuring, and delivering high-quality IT equipment.</p></div>
     </div>
   </section>
 
   <!-- Workflow -->
-  <section id="workflow" class="py-20 px-6">
-    <h2 class="text-3xl font-bold mb-8 text-center">Our Process</h2>
-    <div class="max-w-3xl mx-auto space-y-6 text-lg text-gray-700">
-      <div><span class="font-bold text-blue-600">Phase 01:</span> Consultation & Needs Assessment</div>
-      <div><span class="font-bold text-blue-600">Phase 02:</span> Proposal & Agreement</div>
-      <div><span class="font-bold text-blue-600">Phase 03:</span> Implementation & Support</div>
-      <div><span class="font-bold text-blue-600">Phase 04:</span> Monitoring & Continuous Improvement</div>
-    </div>
+  <section id="workflow" data-animate>
+    <h2>Our Process</h2>
+    <p><strong>Phase 01:</strong> Consultation & Needs Assessment</p>
+    <p><strong>Phase 02:</strong> Proposal & Agreement</p>
+    <p><strong>Phase 03:</strong> Implementation & Support</p>
+    <p><strong>Phase 04:</strong> Monitoring & Continuous Improvement</p>
   </section>
 
   <!-- Clients -->
-  <section id="clients" class="py-20 px-6 bg-gray-50 text-center">
-    <h2 class="text-3xl font-bold mb-8">Trusted By</h2>
-    <div class="flex flex-wrap justify-center items-center gap-10">
-      <div class="w-32 h-16 bg-gray-200 rounded"></div>
-      <div class="w-32 h-16 bg-gray-200 rounded"></div>
-      <div class="w-32 h-16 bg-gray-200 rounded"></div>
-      <div class="w-32 h-16 bg-gray-200 rounded"></div>
+  <section id="clients" data-animate>
+    <h2>Trusted By</h2>
+    <div class="clients">
+      <img src="https://dummyimage.com/200x100/ccc/000.png&text=Client+1" alt="Client 1">
+      <img src="https://dummyimage.com/200x100/ccc/000.png&text=Client+2" alt="Client 2">
+      <img src="https://dummyimage.com/200x100/ccc/000.png&text=Client+3" alt="Client 3">
+      <img src="https://dummyimage.com/200x100/ccc/000.png&text=Client+4" alt="Client 4">
     </div>
-    <p class="text-gray-500 mt-4">*Client logos coming soon</p>
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="py-20 px-6 text-center">
-    <h2 class="text-3xl font-bold mb-4">Contact Us</h2>
-    <p class="text-gray-600 mb-6">We’d love to hear from you. Send us a message and we’ll respond quickly.</p>
-    <form class="max-w-md mx-auto space-y-4">
-      <input type="text" placeholder="Your Name" class="w-full p-3 border rounded" required />
-      <input type="email" placeholder="Your Email" class="w-full p-3 border rounded" required />
-      <textarea placeholder="Your Message" class="w-full p-3 border rounded" rows="4"></textarea>
-      <button type="submit" class="px-6 py-3 bg-blue-600 text-white rounded hover:bg-blue-700">Send Message</button>
+  <section id="contact" data-animate>
+    <h2>Contact Us</h2>
+    <form id="contactForm">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message" rows="4"></textarea>
+      <button type="submit">Send Message</button>
     </form>
+    <div class="form-success">✅ Thank you! Your message has been sent.</div>
   </section>
 
   <!-- Footer -->
-  <footer class="py-6 bg-gray-900 text-gray-400 text-center">
+  <footer>
     © <span id="year"></span> BT Innovation. All rights reserved.
   </footer>
 
   <script>
+    // Animate on scroll
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add("visible");
+      });
+    }, { threshold: 0.2 });
+    document.querySelectorAll("[data-animate]").forEach(el => observer.observe(el));
+
+    // Contact form success message
+    document.getElementById("contactForm").addEventListener("submit", e => {
+      e.preventDefault();
+      document.querySelector(".form-success").style.display = "block";
+      e.target.reset();
+    });
+
+    // Year
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
